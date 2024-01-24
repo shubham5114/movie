@@ -7,7 +7,7 @@
 import pandas as pd
 import numpy as np
 import pickle as pk
-import matplotlib.pyplot as mlt
+# import matplotlib.pyplot as mlt
 import ast  # use to convert a string of list to list
 from nltk.stem.porter import PorterStemmer
 import streamlit as st
