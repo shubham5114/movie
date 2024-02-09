@@ -701,63 +701,63 @@ if selected == "Contact Me":
 st.sidebar.title("Live Chat")
 
 
-def write_to_sidebar(t):
-    with st.sidebar:
-        st.markdown(
-            f"""
-            <div style="background-color: #f4f4f4; padding: 10px; border-radius: 5px; margin: 10px;">
-                <span style="color: #3366cc; font-size: 18px; font-weight: bold;">{t}</span>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
+# def write_to_sidebar(t):
+#     with st.sidebar:
+#         st.markdown(
+#             f"""
+#             <div style="background-color: #f4f4f4; padding: 10px; border-radius: 5px; margin: 10px;">
+#                 <span style="color: #3366cc; font-size: 18px; font-weight: bold;">{t}</span>
+#             </div>
+#             """,
+#             unsafe_allow_html=True,
+#         )
 
 
-def speak(text):
-    engine = pyttsx3.init()
-    voices = engine.getProperty("voices")
-    ID = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0"
-    engine.setProperty("voice", ID)
-    write_to_sidebar("")
-    write_to_sidebar(f"Pillu:  {text}")
-    write_to_sidebar("")
-    if text == "stop":
-        return True  # Indicate to stop the program
-    engine.say(text=text)
-    engine.runAndWait()
-    return False  # Continue the program
+# def speak(text):
+#     engine = pyttsx3.init()
+#     voices = engine.getProperty("voices")
+#     ID = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0"
+#     engine.setProperty("voice", ID)
+#     write_to_sidebar("")
+#     write_to_sidebar(f"Pillu:  {text}")
+#     write_to_sidebar("")
+#     if text == "stop":
+#         return True  # Indicate to stop the program
+#     engine.say(text=text)
+#     engine.runAndWait()
+#     return False  # Continue the program
 
 
-def speechrecognition():
-    r = sr.Recognizer()
-    with sr.Microphone() as source:
-        write_to_sidebar("Listening.....")
-        r.pause_threshold = 1
-        audio = r.listen(source, 0, 8)
+# def speechrecognition():
+#     r = sr.Recognizer()
+#     with sr.Microphone() as source:
+#         write_to_sidebar("Listening.....")
+#         r.pause_threshold = 1
+#         audio = r.listen(source, 0, 8)
 
-        try:
-            write_to_sidebar("Recognizing....")
-            query = r.recognize_google(audio, language="en")
-            write_to_sidebar("You:   " + query)
-            query = query.lower()
-            return query
+#         try:
+#             write_to_sidebar("Recognizing....")
+#             query = r.recognize_google(audio, language="en")
+#             write_to_sidebar("You:   " + query)
+#             query = query.lower()
+#             return query
 
-        except:
-            return ""
-
-
-def mainExexution(query):
-    Query = str(query).lower()
-    if "hello" in Query:
-        speak("Hello Sir, How can I help you?")
-    elif "stop" in Query:
-        speak("Nice to meet you sir")
-        return True  # Indicate to stop the program
-    return False  # Continue the program
+#         except:
+#             return ""
 
 
-while True:
-    Query = speechrecognition()
-    if mainExexution(Query):
-        write_to_sidebar("Program stopped.")
-        break
+# def mainExexution(query):
+#     Query = str(query).lower()
+#     if "hello" in Query:
+#         speak("Hello Sir, How can I help you?")
+#     elif "stop" in Query:
+#         speak("Nice to meet you sir")
+#         return True  # Indicate to stop the program
+#     return False  # Continue the program
+
+
+# while True:
+#     Query = speechrecognition()
+#     if mainExexution(Query):
+#         write_to_sidebar("Program stopped.")
+#         break
