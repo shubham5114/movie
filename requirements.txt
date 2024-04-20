@@ -1,0 +1,13 @@
+﻿pandas
+requests
+subprocess
+streamlit
+streamlit_lottie
+pyttsx3
+SpeechRecognition
+streamlit_scrollable_textbox
+streamlit_option_menu
+scikit-learn
+nltk
+matplotlib
+numpy
